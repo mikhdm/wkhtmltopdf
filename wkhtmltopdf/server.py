@@ -66,24 +66,26 @@ class HTMLToPDFHandler(BaseHTTPRequestHandler):
 
 		try:
 			blob = form.getvalue('html')
-			pdf = _makepdf(blob) # pdf bin data
+			data = _makepdf(blob) # pdf bin data
 		except Exception as e:
 			# make trace to send as a response to a client
 			with io.StringIO() as buff:
+
 				exc_type, exc_value, exc_traceback = sys.exc_info()
 				traceback.print_exception(exc_type, exc_value, exc_traceback, file=buff)
 				buff.seek(0)
-				trace = bytes(buff.read(), encoding='utf-8')
 
-			self.send_header("Content-Type", "text/plain")
+				data = bytes(buff.read(), encoding='utf-8')
+
 			self.send_response(self.__class__.SERVER_ERROR)
-			self.wfile.write(trace)
+			self.send_header("Content-Type", "text/plain")
 		else:
 			self.send_response(self.__class__.OK)
 			self.send_header("Content-Type", "application/pdf")
-			self.wfile.write(pdf)
 		finally:
 			self.end_headers()
+			self.wfile.write(data)
+
 
 def run(server=ThreadedHTTPServer, handler=BaseHTTPRequestHandler, host='', port=8005):
 	addr = (host, int(port),)
