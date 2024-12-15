@@ -1,4 +1,4 @@
-# wkhtmltopdf
+# wkhtmltopdf server
 
 ### Description
 
