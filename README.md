@@ -14,7 +14,7 @@ Install [Docker](https://docs.docker.com/engine/install/) first, then build the 
 docker build -t wkhtmltopdf .
 ```
 
-#### Running the server
+### Running the server
 
 Assuming the Docker image was built successfully, run it, exposing any host port to port 8000.
 
@@ -50,7 +50,7 @@ docker stop wkhtmltopdf
 
 Or press `Ctrl-C` if it was started interactively.
 
-#### Sending HTML document
+### Sending HTML document
 
 To convert an HTML document, send it to the `/` server endpoint:
 
