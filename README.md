@@ -2,7 +2,7 @@
 
 ## Description
 
-Python HTTP server to convert HTML pages to PDF documents.
+Python HTTP server to convert HTML pages to PDF files.
 
 ## How to use?
 
