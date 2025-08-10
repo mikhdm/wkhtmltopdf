@@ -60,4 +60,4 @@ curl --silent -X POST -L localhost:8000 --data-binary "@path/to/file" > file.pdf
 
 Converted PDF will be stored in `file.pdf`
 
-**Warning**: Converter works well with quite simple HTML documents, but may fail with complex styles. It is intended mostly to prepare simple documents, then converting whole websites.
+**Warning**: *The conversion works reliably with simple HTML documents but may struggle with complex styling. It is primarily intended for generating straightforward PDF documents rather than converting large, style-heavy web pages.*
